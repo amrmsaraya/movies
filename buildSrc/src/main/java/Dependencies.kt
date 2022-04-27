@@ -56,6 +56,10 @@ object Versions {
     // Ktor
     const val ktor = "2.0.0"
 
+    // Paging
+    const val paging = "3.1.1"
+    const val paging_compose = "1.0.0-alpha14"
+
     // Kotlinx Serialization
     const val kotlinx_serialization = "1.3.2"
 
@@ -124,8 +128,13 @@ object Libs {
     const val kotlinx_serialization =
         "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinx_serialization}"
 
+    // Paging
+    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+    const val paging_compose = "androidx.paging:paging-compose:${Versions.paging_compose}"
+
     // Placeholder
-    const val placeholder = "com.google.accompanist:accompanist-placeholder-material:${Versions.accompanist}"
+    const val placeholder =
+        "com.google.accompanist:accompanist-placeholder-material:${Versions.accompanist}"
 }
 
 object TestLibs {
