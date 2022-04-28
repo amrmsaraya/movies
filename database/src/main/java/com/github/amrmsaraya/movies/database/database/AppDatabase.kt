@@ -5,6 +5,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.github.amrmsaraya.movies.database.converter.Converter
 import com.github.amrmsaraya.movies.database.dao.movie_details.MovieDetailsDao
 import com.github.amrmsaraya.movies.database.dao.popular.PopularMovieDao
 import com.github.amrmsaraya.movies.database.dao.popular.PopularMovieRemoteKeyDao
@@ -24,6 +26,7 @@ import com.github.amrmsaraya.movies.database.dto.top_rated.TopRatedMovieDTO
     version = 1,
     exportSchema = false
 )
+@TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun movieDetailsDao(): MovieDetailsDao

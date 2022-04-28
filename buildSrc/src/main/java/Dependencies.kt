@@ -22,7 +22,7 @@ object AndroidConfig {
 object Versions {
 
     // Kotlin
-    const val kotlin = "1.6.21"
+    const val kotlin = "1.6.20"
 
     // Core
     const val core_ktx = "1.7.0"
