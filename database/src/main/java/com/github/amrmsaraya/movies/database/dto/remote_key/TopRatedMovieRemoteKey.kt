@@ -8,5 +8,5 @@ data class TopRatedMovieRemoteKey(
     @PrimaryKey
     val id: Long,
     val prevKey: Int?,
-    val NextKey: Int?
+    val nextKey: Int?
 )

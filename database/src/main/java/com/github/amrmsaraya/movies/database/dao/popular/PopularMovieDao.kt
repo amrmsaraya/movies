@@ -13,8 +13,8 @@ interface PopularMovieDao {
     suspend fun insertAll(movies: List<PopularMovieDTO>)
 
     @Query("DELETE FROM popular_movie")
-    suspend fun clearMovies(ids: List<Long>)
+    suspend fun clearMovies()
 
-    @Query("SELECT * FROM popular_movie")
+    @Query("SELECT * FROM popular_movie ORDER BY popularity DESC")
     fun getMovies(): PagingSource<Int, PopularMovieDTO>
 }

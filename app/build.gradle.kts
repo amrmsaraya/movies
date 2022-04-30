@@ -22,14 +22,17 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildConfigField("String", "API_KEY", "\"${Constants.API_KEY}\"")
+        buildConfigField("String", "BASE_URL", "\"${Constants.BASE_URL}\"")
+
     }
 
     buildTypes {
         release {
-            isMinifyEnabled =  false
+            isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -62,6 +65,10 @@ android {
 }
 
 dependencies {
+
+    // Local Modules
+    implementation(project(":common"))
+    implementation(project(":feature_movies"))
 
     // Core
     implementation(Libs.core_ktx)
@@ -109,6 +116,13 @@ dependencies {
 
     // Kotlin Serialization
     implementation(Libs.kotlinx_serialization)
+
+    // Ktor
+    implementation(Libs.ktor_core)
+    implementation(Libs.ktor_android)
+    implementation(Libs.ktor_content_negotiation)
+    implementation(Libs.ktor_serialization)
+    implementation(Libs.ktor_logging)
 
     // Hilt
     implementation(Libs.hilt_android)

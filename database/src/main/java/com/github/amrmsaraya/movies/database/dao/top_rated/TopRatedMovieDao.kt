@@ -13,9 +13,9 @@ interface TopRatedMovieDao {
     suspend fun insertAll(movies: List<TopRatedMovieDTO>)
 
     @Query("DELETE FROM top_rated_movie")
-    suspend fun clearMovies(ids: List<Long>)
+    suspend fun clearMovies()
 
-    @Query("SELECT * FROM top_rated_movie")
+    @Query("SELECT * FROM top_rated_movie ORDER BY voteAverage DESC")
     fun getMovies(): PagingSource<Int, TopRatedMovieDTO>
 
 }

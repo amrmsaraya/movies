@@ -4,16 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.*
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
-import com.github.amrmsaraya.movies.R
+import com.github.amrmsaraya.movies.common.presentation.theme.MoviesTheme
 import com.github.amrmsaraya.movies.presentation.navigation.Navigation
-import com.github.amrmsaraya.movies.presentation.theme.MoviesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,20 +26,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
     MoviesTheme() {
         Surface(modifier = Modifier.fillMaxSize()) {
             val navController = rememberNavController()
-            Scaffold(
-                topBar = { SmallTopAppBar(title = { Text(text = stringResource(R.string.movies)) }) }
-            ) {
-                Navigation(
-                    navController = navController,
-                    modifier = Modifier.padding(it)
-                )
-            }
+            Navigation(navController = navController)
         }
     }
 }

@@ -8,5 +8,5 @@ data class PopularMovieRemoteKey(
     @PrimaryKey
     val id: Long,
     val prevKey: Int?,
-    val NextKey: Int?
+    val nextKey: Int?
 )

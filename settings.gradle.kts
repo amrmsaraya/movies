@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":preference")
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -16,4 +19,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Movies"
 include(":app")
+include(":common")
 include(":database")
+include(":network")
+include(":feature_movies")

@@ -63,6 +63,12 @@ object Versions {
     // Kotlinx Serialization
     const val kotlinx_serialization = "1.3.2"
 
+    // Preferences DataStore
+    const val datastore = "1.0.0"
+
+    // Coil
+    const val coil = "2.0.0-rc03"
+
     // Test
     const val junit = "4.13.2"
     const val junit_android = "1.1.3"
@@ -122,15 +128,24 @@ object Libs {
 
     // Ktor
     const val ktor_core = "io.ktor:ktor-client-core:${Versions.ktor}"
-    const val ktor_engine = "io.ktor:ktor-client-android:${Versions.ktor}"
+    const val ktor_content_negotiation = "io.ktor:ktor-client-content-negotiation:${Versions.ktor}"
+    const val ktor_serialization = "io.ktor:ktor-serialization-kotlinx-json:${Versions.ktor}"
+    const val ktor_logging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
+    const val ktor_android = "io.ktor:ktor-client-android:${Versions.ktor}"
 
     // Kotlin Serialization
     const val kotlinx_serialization =
         "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinx_serialization}"
 
+    // Preferences DataStore
+    const val datastore = "androidx.datastore:datastore-preferences:${Versions.datastore}"
+
     // Paging
     const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
     const val paging_compose = "androidx.paging:paging-compose:${Versions.paging_compose}"
+
+    // Coil
+    const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
 
     // Placeholder
     const val placeholder =
