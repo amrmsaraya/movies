@@ -1,4 +1,4 @@
-package com.github.amrmsaraya.movies.presentation.navigation
+package com.github.amrmsaraya.movies.common.presentation.screen
 
 sealed class Screen(val route: String) {
     object Movies : Screen(

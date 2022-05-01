@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.github.amrmsaraya.movies.common.presentation.screen.Screen
 import com.github.amrmsaraya.movies.common.presentation.theme.*
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlin.math.ln
@@ -76,6 +77,7 @@ private val DarkThemeColors = darkColorScheme(
 fun MoviesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamic: Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S,
+    currentDestination: String? = null,
     content: @Composable() () -> Unit
 ) {
     // Use dynamic colorscheme for SDK 31+ (get colorscheme from wallpaper)
@@ -90,7 +92,10 @@ fun MoviesTheme(
 
     SideEffect {
         systemUiController.setNavigationBarColor(colorScheme.surface)
-        systemUiController.setStatusBarColor(Color.Transparent)
+        systemUiController.setStatusBarColor(
+            color = Color.Transparent,
+            darkIcons = if (currentDestination == Screen.Movies.route) !darkTheme else false
+        )
     }
 
     MaterialTheme(

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
@@ -26,6 +27,7 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.github.amrmsaraya.movies.common.presentation.composable.NoInternetConnection
+import com.github.amrmsaraya.movies.common.presentation.theme.md_theme_dark_onSurfaceVariant
 import com.github.amrmsaraya.movies.common.presentation.theme.surfaceAtElevation
 import com.github.amrmsaraya.movies.common.util.Constants
 import com.github.amrmsaraya.movies.feature_movies.R
@@ -54,10 +56,17 @@ fun MovieDetailsScreen(
                 title = {},
                 colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent),
                 navigationIcon = {
-                    IconButton(onClick = { onBackClick() }) {
+                    IconButton(
+                        modifier = Modifier
+                            .padding(start = 8.dp)
+                            .background(
+                                MaterialTheme.colorScheme.surface.copy(alpha = 0.25f),
+                                shape = CircleShape
+                            ), onClick = { onBackClick() }) {
                         Icon(
                             imageVector = Icons.Rounded.ArrowBack,
-                            contentDescription = null
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
                 }
@@ -120,7 +129,7 @@ fun MovieDetailsContent(movie: MovieDetails) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
+                    .height(200.dp)
                     .align(Alignment.BottomStart)
                     .background(
                         Brush.verticalGradient(

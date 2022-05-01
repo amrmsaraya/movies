@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.github.amrmsaraya.movies.common.presentation.screen.Screen
 import com.github.amrmsaraya.movies.feature_movies.presentation.movie_details.MovieDetailsScreen
 import com.github.amrmsaraya.movies.feature_movies.presentation.movies.MovieScreen
 
