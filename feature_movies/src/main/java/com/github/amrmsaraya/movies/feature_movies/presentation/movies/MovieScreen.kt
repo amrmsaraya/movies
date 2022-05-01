@@ -36,6 +36,7 @@ import com.google.accompanist.placeholder.material.placeholder
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MovieScreen(
+    onNavigateToMovieDetails: (Long) -> Unit,
     viewModel: MovieViewModel = hiltViewModel()
 ) {
     val uiState = viewModel.uiState
@@ -63,6 +64,7 @@ fun MovieScreen(
     }
 
     Scaffold(
+        modifier = Modifier.systemBarsPadding(),
         topBar = {
             SmallTopAppBar(
                 title = { Text(text = stringResource(id = uiState.movieSort.stringRes)) },
@@ -88,7 +90,7 @@ fun MovieScreen(
                 onSelect = { viewModel.sendIntent(MovieIntent.SaveMovieSort(it)) },
                 onDismiss = { expanded = false }
             )
-            if (movies.loadState.mediator?.refresh is LoadState.Error) {
+            if (movies.loadState.mediator?.refresh is LoadState.Error && movies.itemCount == 0) {
                 NoInternetConnection {
                     movies.refresh()
                 }
@@ -107,7 +109,7 @@ fun MovieScreen(
                             movies[index]?.let { movie ->
                                 MovieItem(
                                     movie = movie,
-                                    onClick = {}
+                                    onClick = { onNavigateToMovieDetails(movie.id) }
                                 )
                             }
                         }
@@ -180,7 +182,7 @@ private fun MovieItem(
 ) {
     val painter = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data("${Constants.IMAGE_BASEURL}/${movie.posterPath}")
+            .data("${Constants.POSTER_BASEURL}/${movie.posterPath}")
             .crossfade(true)
             .build(),
         contentScale = ContentScale.FillBounds

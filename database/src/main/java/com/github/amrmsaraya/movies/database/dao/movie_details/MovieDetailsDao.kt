@@ -11,5 +11,5 @@ interface MovieDetailsDao {
     suspend fun insert(movie: MovieDetailsDTO)
 
     @Query("SELECT * FROM movie_details WHERE id = :id")
-    fun getMovieDetails(id: Long): Flow<MovieDetailsDTO>
+    suspend fun getMovieDetails(id: Long): MovieDetailsDTO
 }

@@ -8,8 +8,6 @@ import com.github.amrmsaraya.movies.feature_movies.data.source.remote.MovieRemot
 import com.github.amrmsaraya.movies.feature_movies.domain.entity.movie_details.MovieDetails
 import com.github.amrmsaraya.movies.feature_movies.domain.repository.movie_details.MovieDetailsRepo
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class MovieDetailsRepoImpl(
@@ -23,8 +21,10 @@ class MovieDetailsRepoImpl(
         }
     }
 
-    override fun getLocalMovieDetails(id: Long): Flow<MovieDetails> {
-        return movieDetailsLocalDataSource.getMovieDetails(id).map { it.toMovieDetails() }
+    override suspend fun getLocalMovieDetails(id: Long): MovieDetails {
+        return withContext(dispatcher) {
+            movieDetailsLocalDataSource.getMovieDetails(id).toMovieDetails()
+        }
     }
 
     override suspend fun getRemoteMovieDetails(id: Long): MovieDetails {

@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieDetailsRepo {
     suspend fun insert(movie: MovieDetails)
-    fun getLocalMovieDetails(id: Long): Flow<MovieDetails>
+    suspend fun getLocalMovieDetails(id: Long): MovieDetails
     suspend fun getRemoteMovieDetails(id: Long): MovieDetails
 }

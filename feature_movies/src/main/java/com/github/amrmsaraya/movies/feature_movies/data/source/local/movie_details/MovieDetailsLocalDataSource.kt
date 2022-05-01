@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieDetailsLocalDataSource {
     suspend fun insert(movie: MovieDetailsDTO)
-    fun getMovieDetails(id: Long): Flow<MovieDetailsDTO>
+    suspend fun getMovieDetails(id: Long): MovieDetailsDTO
 }

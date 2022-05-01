@@ -89,7 +89,8 @@ fun MoviesTheme(
     val systemUiController = rememberSystemUiController()
 
     SideEffect {
-        systemUiController.setSystemBarsColor(colorScheme.surface)
+        systemUiController.setNavigationBarColor(colorScheme.surface)
+        systemUiController.setStatusBarColor(Color.Transparent)
     }
 
     MaterialTheme(

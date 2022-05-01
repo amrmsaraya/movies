@@ -12,7 +12,7 @@ class MovieDetailsLocalDataSourceImpl(
         movieDetailsDao.insert(movie)
     }
 
-    override fun getMovieDetails(id: Long): Flow<MovieDetailsDTO> {
+    override suspend fun getMovieDetails(id: Long): MovieDetailsDTO {
         return movieDetailsDao.getMovieDetails(id)
     }
 }
